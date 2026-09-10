@@ -1,0 +1,6 @@
+passwords.local
+.env
+*.key
+*.pem
+*.secret
+*.credentials

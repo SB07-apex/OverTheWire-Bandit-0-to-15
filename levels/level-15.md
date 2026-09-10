@@ -1,0 +1,47 @@
+# Bandit Level 15 — Submit password over SSL
+
+## 🎯 Challenge
+
+Retrieve the next password by submitting the current password to port `30001` on localhost using SSL encryption.
+
+## 🔎 What we need to do
+
+Read the clue carefully, identify what kind of Linux operation it requires, and use the smallest appropriate tool.
+
+## 💻 Solution
+
+```bash
+openssl s_client -connect localhost:30001
+# Enter the current password
+# If needed:
+echo '<PASSWORD>' | openssl s_client -ign_eof -connect localhost:30001
+```
+
+## 🧠 Why this works
+
+`openssl s_client` creates an SSL/TLS client connection. `-ign_eof` can help keep the connection open while sending piped input.
+
+## 📚 Concept learned
+
+**SSL/TLS / OpenSSL**
+
+## 🔐 Result / password
+
+The output of the solution command is the credential/result required to continue to the next level.
+
+```text
+<PASSWORD_OBTAINED_HERE>
+```
+
+> Keep the real credential private if this repository is public.
+
+## 📝 Notes
+
+- What was difficult:
+- What I learned:
+- Useful command:
+- Screenshot/evidence:
+
+## ➡️ Next level
+
+Use the resulting password to authenticate to the next Bandit level over SSH on port `2220`.
